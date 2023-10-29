@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- aframe framework -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <!-- components -->
+    <script src="/components/script.js"></script>
+  </head>
+  <body>
+    <a-scene create-object>
+      <a-assets>
+        <!-- grass textue img -->
+        <img id="grass" src="/textures/grass/wispy-grass-meadow_albedo.png" />
+
+        <!-- grass normal map -->
+        <img
+          id="grass-nrm"
+          src="/textures/grass/wispy-grass-meadow_normal-ogl.png"
+        />
+
+        <!-- grass height/displacement map -->
+        <img
+          id="grass-displacement"
+          src="/textures//grass/wispy-grass-meadow_height.png"
+        />
+
+        <!-- grass Ambient occlusion map -->
+        <img id="grass-ao" src="/textures/grass/wispy-grass-meadow_ao.png" />
+
+        <a-asset-item
+          id="peppa"
+          src="/models/peppa/d1882c211bc04e1c87eab6d6cd9b500a_myfile.glb"
+        ></a-asset-item>
+
+        <!-- skybox img -->
+        <img id="skybox" src="/img/panoramic-sea.jpg" />
+      </a-assets>
+
+      <!-- grass floor -->
+      <a-plane
+        color="#fff"
+        src="#grass"
+        normal-map="#grass-nrm"
+        displacement-map="#grass-displacement"
+        ambient-occlusion-map="#grass-ao"
+        repeat="15 15"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+      ></a-plane>
+      <!-- skybox -->
+      <a-sky src="#skybox"></a-sky>
+      <a-camera>
+        <a-cursor
+          fuse="true"
+          fuse-timeout="500"
+          material="color: #ffff00; shader: flat"
+          geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05"
+        ></a-cursor
+      ></a-camera>
+    </a-scene>
+  </body>
+</html>
